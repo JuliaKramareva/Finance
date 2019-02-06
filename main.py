@@ -10,4 +10,18 @@ Output: three column csv file included company's name/currencies/counted income
 '''
 
 file = pd.read_csv('/home/julia/Downloads/summary.csv')
-print(file.head())
+
+df = pd.DataFrame(file)
+df.columns.get_level_values(0)
+
+'''find all column names and rename them'''
+
+print(df.keys())
+print (df.columns)
+
+df.rename(columns={'Count': 'Count sales', 'Amount': 'Amount sales', 'Count.1': 'Count refunds', 'Amount.1': 'Amount refunds',
+                   'Count.2': 'Count chb', 'Amount.2': "Amount chb" }, inplace=True)
+
+
+
+print(df.dtypes)
